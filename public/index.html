@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Service Desk</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header id="app-header" class="hidden">
+    <div class="header-inner">
+      <span class="logo">Service Desk</span>
+      <div class="header-right">
+        <span id="user-name"></span>
+        <button id="logout-btn">Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Login View -->
+  <main id="view-login">
+    <div class="card">
+      <h1>Service Desk</h1>
+      <p class="subtitle">Sign in to your account</p>
+      <form id="login-form" novalidate>
+        <div class="field">
+          <label for="login-email">Email</label>
+          <input id="login-email" type="email" autocomplete="email" required />
+          <span class="error" id="login-email-error"></span>
+        </div>
+        <div class="field">
+          <label for="login-password">Password</label>
+          <input id="login-password" type="password" autocomplete="current-password" required />
+          <span class="error" id="login-password-error"></span>
+        </div>
+        <button type="submit" class="primary">Sign in</button>
+        <p class="status" id="login-status"></p>
+      </form>
+      <p class="hint">Demo: agent@desk.com / user@desk.com (password: password1)</p>
+    </div>
+  </main>
+
+  <!-- Tickets View -->
+  <main id="view-tickets" class="hidden">
+    <div class="page">
+      <div class="page-bar">
+        <h2>Tickets</h2>
+        <button id="new-ticket-btn" class="primary">+ New Ticket</button>
+      </div>
+      <div class="filters">
+        <label>
+          Status
+          <select id="filter-status">
+            <option value="">All</option>
+            <option value="open">Open</option>
+            <option value="in-progress">In Progress</option>
+            <option value="resolved">Resolved</option>
+            <option value="closed">Closed</option>
+          </select>
+        </label>
+        <label>
+          Priority
+          <select id="filter-priority">
+            <option value="">All</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+            <option value="critical">Critical</option>
+          </select>
+        </label>
+      </div>
+      <div id="ticket-list" class="ticket-list"></div>
+      <p id="ticket-list-empty" class="empty hidden">No tickets found.</p>
+    </div>
+  </main>
+
+  <!-- Create Ticket View -->
+  <main id="view-create" class="hidden">
+    <div class="page">
+      <div class="page-bar">
+        <h2>New Ticket</h2>
+        <button id="create-back-btn" class="ghost">← Back</button>
+      </div>
+      <form id="create-form" class="card" novalidate>
+        <div class="field">
+          <label for="create-title">Title *</label>
+          <input id="create-title" type="text" required autofocus />
+          <span class="error" id="create-title-error"></span>
+        </div>
+        <div class="field">
+          <label for="create-desc">Description</label>
+          <textarea id="create-desc" rows="4"></textarea>
+        </div>
+        <div class="field">
+          <label for="create-priority">Priority</label>
+          <select id="create-priority">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+            <option value="critical">Critical</option>
+          </select>
+        </div>
+        <button type="submit" class="primary">Create Ticket</button>
+        <p class="status" id="create-status"></p>
+      </form>
+    </div>
+  </main>
+
+  <!-- Ticket Detail View -->
+  <main id="view-detail" class="hidden">
+    <div class="page">
+      <div class="page-bar">
+        <h2 id="detail-title-heading">Ticket</h2>
+        <button id="detail-back-btn" class="ghost">← Back</button>
+      </div>
+      <div class="card">
+        <div class="detail-meta">
+          <span class="badge" id="detail-status"></span>
+          <span class="badge" id="detail-priority"></span>
+          <span id="detail-created"></span>
+        </div>
+        <p id="detail-body" class="detail-body"></p>
+        <div class="detail-actions" id="detail-actions">
+          <label>
+            Update status:
+            <select id="detail-status-select">
+              <option value="open">Open</option>
+              <option value="in-progress">In Progress</option>
+              <option value="resolved">Resolved</option>
+              <option value="closed">Closed</option>
+            </select>
+          </label>
+          <button id="detail-update-btn" class="primary">Update</button>
+        </div>
+        <p class="status" id="detail-status-msg"></p>
+      </div>
+    </div>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
