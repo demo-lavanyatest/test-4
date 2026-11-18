@@ -1,0 +1,83 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: start center;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  color: #0f172a;
+  padding: 2rem 1rem;
+}
+
+.app {
+  width: 100%;
+  max-width: 480px;
+}
+
+h1 { margin: 0 0 1.25rem; font-size: 1.9rem; text-align: center; }
+
+.total-card {
+  background: #4f46e5;
+  color: #fff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.3);
+}
+.total-label { display: block; font-size: 0.9rem; opacity: 0.85; }
+.total-value { display: block; font-size: 2.4rem; font-weight: 700; margin-top: 0.25rem; }
+
+#expense-form {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  margin-bottom: 1.5rem;
+}
+
+.field { margin-bottom: 1rem; }
+label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; }
+
+input[type="number"], select {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+}
+input:focus, select:focus { outline: none; border-color: #4f46e5; box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2); }
+input[aria-invalid="true"], select[aria-invalid="true"] { border-color: #dc2626; }
+
+.error { display: block; min-height: 1.1rem; font-size: 0.8rem; color: #dc2626; margin-top: 0.3rem; }
+
+.primary {
+  width: 100%; padding: 0.8rem; border: none; border-radius: 8px;
+  background: #4f46e5; color: #fff; font-size: 1rem; font-weight: 600; cursor: pointer;
+}
+.primary:hover { background: #4338ca; }
+
+.list-section h2 { font-size: 1.25rem; margin: 0 0 0.75rem; }
+
+.empty { color: #64748b; text-align: center; padding: 1.5rem; }
+
+.expense-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+
+.expense-item {
+  display: flex; align-items: center; justify-content: space-between;
+  background: #fff; padding: 0.9rem 1rem; border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+.expense-info { display: grid; gap: 0.15rem; }
+.expense-category { font-weight: 600; }
+.expense-amount { color: #0f172a; font-size: 0.9rem; }
+.expense-amount.negative { color: #dc2626; }
+
+.delete {
+  background: none; border: none; color: #dc2626; cursor: pointer;
+  font-size: 0.85rem; font-weight: 600; padding: 0.35rem 0.5rem; border-radius: 6px;
+}
+.delete:hover { background: #fee2e2; }
