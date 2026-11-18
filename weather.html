@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App</title>
+  <link rel="stylesheet" href="weather.css" />
+</head>
+<body>
+  <main class="weather-app" aria-labelledby="app-title">
+    <h1 id="app-title">Weather Finder</h1>
+    <p class="subtitle">Check real-time weather conditions for any city</p>
+
+    <form id="weather-form" class="search-form" novalidate>
+      <div class="input-row">
+        <label for="city-input" class="sr-only">City name</label>
+        <input
+          id="city-input"
+          name="city"
+          type="text"
+          placeholder="Enter city name (e.g. London, Tokyo)"
+          autocomplete="off"
+          required
+          aria-describedby="error-msg"
+        />
+        <button type="submit" id="search-btn" class="primary">Search</button>
+      </div>
+      <p id="error-msg" class="error" role="alert"></p>
+    </form>
+
+    <p id="loading-msg" class="loading" role="status" aria-live="polite" hidden>
+      Fetching weather data...
+    </p>
+
+    <section id="weather-card" class="weather-card" aria-live="polite" hidden>
+      <div class="location-header">
+        <h2 id="location-name"></h2>
+        <p id="weather-description" class="condition"></p>
+      </div>
+
+      <div class="temp-display">
+        <span id="temperature" class="temp-value"></span>
+        <span class="temp-unit">&deg;C</span>
+      </div>
+
+      <dl class="details-grid">
+        <div class="detail-item">
+          <dt>Feels Like</dt>
+          <dd id="feels-like"></dd>
+        </div>
+        <div class="detail-item">
+          <dt>Humidity</dt>
+          <dd id="humidity"></dd>
+        </div>
+        <div class="detail-item">
+          <dt>Wind Speed</dt>
+          <dd id="wind-speed"></dd>
+        </div>
+      </dl>
+    </section>
+  </main>
+
+  <script src="weather.js"></script>
+</body>
+</html>
